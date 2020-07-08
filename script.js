@@ -182,6 +182,7 @@ if (excludedKeywords.length > 0) {
     }
 }
 
+console.log("Excluded words:");
 console.log(options);
 
 

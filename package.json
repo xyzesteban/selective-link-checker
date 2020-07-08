@@ -1,7 +1,7 @@
 {
     "scripts": {
         "build": "node build.js",
-        "blc-custom": "node script.js"
+        "slc": "node script.js"
     },
     "dependencies": {
         "broken-link-checker": "0.7.8",
