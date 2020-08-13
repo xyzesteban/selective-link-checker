@@ -82,11 +82,11 @@ const htmlChecker = new blc.HtmlUrlChecker(options, {
     html: (tree, robots, response, pageURL, customData) => {
         checkedTemp = 0;
         brokenTemp = 0;
-        console.log(" ");
+        // console.log(" ");
         console.log("Checking: ", pageURL);
         currentPage = pageURL;
         URLlist.unshift({ parent: pageURL});
-        //console.log("URLlist:", URLlist)
+        // console.log("URLlist:", URLlist)
     },
     queue: () => {
         // console.log("QUEUE");
@@ -98,9 +98,9 @@ const htmlChecker = new blc.HtmlUrlChecker(options, {
     link: (result, customData) => {
         checked++;
         checkedTemp++;
-        console.log("Checking:", result.url.resolved)
+        // console.log("Checking:", result.url.resolved)
         if (result.broken) {
-            console.log(result.brokenReason);
+            // console.log(result.brokenReason);
             data.unshift({
                 parent: currentPage,
                 error: result.brokenReason,
@@ -111,7 +111,7 @@ const htmlChecker = new blc.HtmlUrlChecker(options, {
             //=> HTTP_404
         } 
         else if (result.excluded) {
-            console.log(result.excludedReason);
+            // console.log(result.excludedReason);
             //=> BLC_ROBOTS
         } 
         else {
@@ -127,13 +127,13 @@ const htmlChecker = new blc.HtmlUrlChecker(options, {
                 !explored.has(result.url.resolved) && !excluded) {
                 // console.log("On queue: ", numPages());
                 // console.log("Contains excludedKeywords:", excluded);
-                console.log("Adding to queue...");
+                // console.log("Adding to queue...");
                 explored.add(result.url.resolved);
                 addToQueue(result.url.resolved);
                 max = Math.max(max, numPages());
             }
             else {
-                console.log("OK!");
+                // console.log("OK!");
             }
         }
         //console.log(" ");
